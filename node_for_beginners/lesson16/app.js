@@ -1,17 +1,19 @@
 // Lesson 16 Working with JSON Data
-
-//npm install body-parser
+/*
+The body-parser middleware can also be used to parse JSON.
+The form from previous lesson has been updated to use jQuery/AJAX 
+to submit form data as an array of JSON objects.
+The json response received by client is outputted to browser and console.
+*/
 
 const express = require('express');
 const path = require('path');
-const bodyParse = requre('body-parser');
+const bodyParser = require('body-parser');
 const app = express();
 
-// app.use = middleware
-//create alias called public to static directory in current directory
 app.use('/public',express.static(path.join(__dirname,'static')));
-// allows parse url encoded forms. extended not needed for strings
 app.use(bodyParser.urlencoded({extended: false}));
+// Run json parser for all routes
 app.use(bodyParser.json());
 
 app.get('/',(req,res)=>{
@@ -21,9 +23,24 @@ app.get('/',(req,res)=>{
 app.post('/',(req,res)=>{
     console.log(req.body);
     // database work here
+    
+    //send respose back to client as json
     res.json({success : true});
 })
 // note output of console.log from index.html will output an array instead of json due to the serializearray
 
 
 app.listen(3000);
+
+/*
+--- Sample output ---
+from server console:
+[
+  { name: 'email', value: 'foo@bar.com' },
+  { name: 'password', value: '54321' }
+]
+
+from browser console:
+successfully got response
+(index):28 {success: true}
+*/

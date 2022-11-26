@@ -1,1 +1,1 @@
-console.log("Testing client side")
+console.log("Test message from client side")
