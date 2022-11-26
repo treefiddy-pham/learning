@@ -50,3 +50,11 @@ pedro.on('name',()=>{
 // Events get executed syncrhonously. pedro outputs first because event occurs first even though christina is created first above.
 pedro.emit('name');
 christina.emit('name');
+
+/*
+[Sample Output]
+tutorial event has occurred
+3
+my name is Pedro
+my name is Christina
+*/

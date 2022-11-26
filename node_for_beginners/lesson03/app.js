@@ -22,7 +22,7 @@ rl.question(`What is ${ num1 } + ${ num2}? \n`,
     }
     //if incorrect answer is inputted, reprompt for input with callback to process input again.
     else{
-        rl.setPrompt('Incorrect response please try again\n');
+        rl.setPrompt('Incorrect response. please try again\n');
         rl.prompt();
         // Checks for correct answer and closes if correct.
         // Here the rl interface is waiting for the 'line' event where an EOL has been inputted.
@@ -44,3 +44,16 @@ rl.question(`What is ${ num1 } + ${ num2}? \n`,
 rl.on('close',()=>{
     console.log('Correct!!!!!');
 });
+
+/*
+[Sample Output]
+What is 6 + 2?
+25
+Incorrect response. please try again
+powerball
+Your answer of powerball is incorrect
+10
+Your answer of 10 is incorrect
+8
+Correct!!!!!
+*/
