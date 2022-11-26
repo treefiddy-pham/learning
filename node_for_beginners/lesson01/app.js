@@ -13,3 +13,18 @@ console.log(tutorial);
 console.log(tutorial.sum(1,1));
 console.log(tutorial.PI);
 console.log(new tutorial.SomeMathObject());
+
+/*
+[Sample Output]
+
+Hello World
+{
+  sum: [Function: sum],
+  PI: 3.14,
+  SomeMathObject: [class SomeMathObject]
+}
+2
+3.14
+object created
+SomeMathObject {}
+*/
