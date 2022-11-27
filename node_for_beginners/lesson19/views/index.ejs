@@ -1,18 +1,19 @@
 <div>
-    <h1>You Searched For : Stuff</h1>
-    <h1>You Searched For : <%= data.userQuery %></h1>
+    <!-- This if statement is generally not needed since 'data' 
+    would have to exist for express router to load this page -->
+    <% if(data.userQuery){ %>
+        <h1>You Searched For : <%= data.userQuery %></h1>
+    <% } %>
     <% if(data.loggedIn){ %>
         <h2> You are logged in as : <%= data.username %> </h2>
-        <% } %>
-    }
+    <% } else { %>
+        <h2> You are not logged in </h2>
+    <% } %>
     <ul>
-        <li>dummy data</li>
-        <li>dummy data</li>
-        <li>dummy data</li>
-        <li><%= data.searchResults[0]></li>
-        <li><%= data.searchResults[1]></li>
-        <li><%=data.searchResults[2]></li>
-        <% data.searchResults.forEach(results=>{ %>
+        <!-- example of accessing a specific item in the array or 
+        using forEarch to interate through entire array -->
+        <li><%= data.searchResults[0] %></li>
+        <% data.searchResults.forEach(result=>{ %>
             <li> <%= result %> </li>
         <% }); %>
     </ul>
